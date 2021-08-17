@@ -18,7 +18,7 @@
   As you get this application on your computer, be sure to run npm install to install the fs and inquirer dependencies needed for this node project.
 
   ## Usage
-  Run the command in your command line and follow the prompts that come on the screen to get your generated README file.There is no deployed web application, as it runs through node on your machine.
+  Run the command in your command line and follow the prompts that come on the screen to get your generated README file. There is no deployed web application, as it runs through node on your machine.
 
   ### Deployed link and screenshot (if applicable)
   
@@ -29,7 +29,8 @@
   ## Credits
   Starter code for this project was provided by Trilogy Education as a part of the Full Stack Web Developer Bootcamp through the University of Kansas.© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
 
-  ## License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  ## License 
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   
 ### MIT LICENSE
 

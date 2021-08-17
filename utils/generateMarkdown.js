@@ -85,7 +85,7 @@ function generateMarkdown(data) {
   ## Credits
   ${data.credits}
 
-  ## License 
+  ## License
   [!${renderLicenseBadge(data.license)}]${renderLicenseLink(data.license)}
   ${renderLicenseSection(data.license)}
 
