@@ -1,104 +1,104 @@
-const { MIT, Apache, GPL, MPL, Unlicense } = require('./utils/licenses.js');
+// Module that creates text blocks for the licenses
+const { MIT, Apache, GPL, MPL, Unlicense } = require('./licenses');
 
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// Function that returns a license badge based on which license is passed in
 function renderLicenseBadge(license) {
   switch(license) {
     case 'MIT':
-      badge = '[License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)';
-      break;
+      return '[License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)';
     case 'Apache':
-      badge = '[License: Appache](https://img.shields.io/badge/License-Apache%202.0-blue.svg)';
-      break;
+      return '[License: Appache](https://img.shields.io/badge/License-Apache%202.0-blue.svg)';
     case 'GPL':
-      badge = '[License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)';
-      break;
+      return '[License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)';
     case 'MPL':
-      badge = '[License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)';
-      break;
+      return '[License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)';
     case 'Unlicense':
-      badge = '[License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)';
-      break;
+      return '[License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)';
+    case '':
+      return '';
   }
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+// Function that returns the license link
 function renderLicenseLink(license) {
   switch(license) {
     case 'MIT':
-      licenseLink = '(https://opensource.org/licenses/MIT)';
-      break;
+      return '(https://opensource.org/licenses/MIT)';
     case 'Apache':
-      licenseLink = '(https://opensource.org/licenses/Apache-2.0)';
-      break;
+      return '(https://opensource.org/licenses/Apache-2.0)';
     case 'GPL':
-      licenseLink = '(https://www.gnu.org/licenses/gpl-3.0)';
-      break;
+      return '(https://www.gnu.org/licenses/gpl-3.0)';
     case 'MPL':
-      licenseLink = '(https://opensource.org/licenses/MPL-2.0)';
-      break;
+      return '(https://opensource.org/licenses/MPL-2.0)';
     case 'Unlicense':
-      licenseLink = '(http://unlicense.org/)';
-      break;
+      return '(http://unlicense.org/)';
+    case '':
+      return '';
   }
 }
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+// Function that returns the license section of README
 function renderLicenseSection(license) {
   switch(license) {
     case 'MIT':
-      licenseText = MIT;
-      break;
+      return MIT;
     case 'Apache':
-      licenseText = Apache;
-      break;
+      return Apache;
     case 'GPL':
-      licenseText = GPL;
-      break;
+      return GPL;
     case 'MPL':
-      licenseText = MPL;
-      break;
+      return MPL;
     case 'Unlicense':
-        licenseText = Unlicense;
-        break;
+      return Unlicense;
+    case '':
+      return '';
   }
 }
 
-// TODO: Create a function to generate markdown for README
+// Function to generate markdown for README
 function generateMarkdown(data) {
   return `
   # ${data.title}
+  [!${renderLicenseBadge(data.license)}]${renderLicenseLink(data.license)}
+
   ## Description
   ${data.description}
+
   ## Table of Contents
   * [Installation](#installation)
-  * [Usage](##Usage)
-  * [Credits](##Credits)
-  * [License](##License)
-  * [Contributing] (##Contributing)
-  * [Tests] (##Tests)
-  * [Questions](#Questions)
+  * [Usage](#usage)
+  * [Credits](#credits)
+  * [License](#license)
+  * [Contributing](#contributing)
+  * [Tests](#tests)
+  * [Questions](#questions)
+  
   ## Installation
   ${data.install}
+
   ## Usage
   ${data.usage}
+
   ### Deployed link and screenshot (if applicable)
   ${data.deployed}
-  ${data.screenshot}
+  ![screenshot](${data.screenshot})
+
   ## Credits
   ${data.credits}
-  ## License
-  [!${renderLicenseBadge(data.license).badge}]${renderLicenseLink(data.license).licenseLink}
-  ${renderLicenseSection(data.license).licenseText}
+
+  ## License 
+  [!${renderLicenseBadge(data.license)}]${renderLicenseLink(data.license)}
+  ${renderLicenseSection(data.license)}
+
   ## Contributing
   ${data.contributing}
+
   ## Tests
   ${data.tests}
+
   ## Questions
-  If you have any questions, please contact me here:
-  ${data.contact}
+  You can find my GitHub profile at https://github.com/${data.github}
+  For any further questions, reach out to me via email at ${data.contact}.
 `
 }
 
-module.exports = { generateMarkdown, renderLicenseBadge, renderLicenseLink, renderLicenseSection }
+module.exports = generateMarkdown;

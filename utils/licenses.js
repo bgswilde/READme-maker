@@ -1,5 +1,5 @@
 const MIT = `
-MIT License
+### MIT LICENSE
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -20,6 +20,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.`
 
 const Apache = `
+### APACHE 2.0 LICENSE
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -33,6 +34,7 @@ See the License for the specific language governing permissions and
 limitations under the License.`
 
 const Unlicense = `
+### Unlicense
 This is free and unencumbered software released into the public domain.
 
 Anyone is free to copy, modify, publish, use, compile, sell, or
@@ -59,9 +61,11 @@ OTHER DEALINGS IN THE SOFTWARE.
 For more information, please refer to <https://unlicense.org>`
 
 const MPL = `
+### MPL LICENSE
 This software is subject to the terms of the Mozilla Public License, v. 2.0. You can obtain a full copy of the license terms at <http://mozilla.org/MPL/2.0/>.`
 
 const GPL = `
+### GPL LICENSE
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or

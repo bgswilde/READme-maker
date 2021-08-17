@@ -1,12 +1,11 @@
-// TODO: Include packages needed for this application
+// Packages and modules needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 
 
-// TODO: Create an array of questions for user input
-const askQuestions = () => {
-  return inquirer.prompt([
+// Array of questions for user input
+const questions = [
     {
       type: 'input',
       name: 'title',
@@ -23,7 +22,7 @@ const askQuestions = () => {
     {
       type: 'input',
       name: 'description',
-      message: 'Please describe your project, as you would want it to read in your READme.md file. (Required)',
+      message: 'Please provide a description of your project. (Required)',
       validate: description => {
         if (description) {
           return true;
@@ -76,18 +75,37 @@ const askQuestions = () => {
     },
     {
       type: 'input',
-      name: 'contact',
-      message: 'If anybody should have questions, please enter an email address or alternate contact method here:'
+      name: 'github',
+      message: 'What is your GitHub username?'
     },
-])
-};
+    {
+      type: 'input',
+      name: 'contact',
+      message: 'Please enter an email address where further questions should be directed.'
+    },
+]
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// Function to write README file
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, err => {
+    // if there's an error, console log it and return
+    if (err) {
+      console.log(err);
+      return;
+    // display a message confirming the creation of the file
+    } else {
+      console.log('Success! Your README has been created in the dist folder!')
+    }
+  });
+}
 
-// TODO: Create a function to initialize app
+// Function to initialize app
 function init() {
-
+  inquirer.prompt(questions)
+    .then(data => {
+      console.log(data);
+      return writeToFile('./dist/README.md', generateMarkdown(data));
+  });
 }
 
 // Function call to initialize app
